@@ -11,9 +11,8 @@ fun arrayChallenge(strArr: Array<String>): String {
 }
 
 fun findMostFreeTime(periods: List<Pair<LocalTime, LocalTime>>): Duration {
-    if (periods.isEmpty()) return Duration.ZERO
     val sorted = periods.sortedBy { it.first }
-    var previous = sorted[0]
+    var previous = sorted.firstOrNull() ?: return Duration.ZERO
     return sorted.drop(1)
         .map { current ->
             if (current.first > previous.second) {
