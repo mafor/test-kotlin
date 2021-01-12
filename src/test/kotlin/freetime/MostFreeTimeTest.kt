@@ -27,8 +27,14 @@ internal class MostFreeTimeTest {
 
     @Test
     fun `Overlapping periods with results`() {
-        val times = arrayOf("08:00AM-12:00PM","09:00AM-11:00PM", "12:30PM-01:00PM")
+        val times = arrayOf("08:00AM-12:00PM","09:00AM-11:00AM", "12:30PM-01:00PM")
         assertEquals("00:30", arrayChallenge(times))
+    }
+
+    @Test
+    fun `Partially overlapping periods with results`() {
+        val times = arrayOf("08:00AM-12:00PM","09:00AM-01:00PM", "02:00PM-03:00PM")
+        assertEquals("01:00", arrayChallenge(times))
     }
 
     @Test

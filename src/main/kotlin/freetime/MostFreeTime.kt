@@ -12,13 +12,16 @@ fun arrayChallenge(strArr: Array<String>): String {
 
 fun findMostFreeTime(periods: List<Pair<LocalTime, LocalTime>>): Duration {
     val sorted = periods.sortedBy { it.first }
-    var previous = sorted.firstOrNull() ?: return Duration.ZERO
+    var previousEnd = sorted.firstOrNull()?.second ?: return Duration.ZERO
     return sorted.drop(1)
         .map { current ->
-            if (current.first > previous.second) {
-                Duration.between(previous.second, current.first)
-                    .also { previous = current }
-            } else Duration.ZERO
+            if (current.first > previousEnd) {
+                Duration.between(previousEnd, current.first)
+                    .also { previousEnd = current.second }
+            } else {
+                previousEnd = maxOf(previousEnd, current.second)
+                Duration.ZERO
+            }
         }
         .maxOrNull() ?: Duration.ZERO
 }
