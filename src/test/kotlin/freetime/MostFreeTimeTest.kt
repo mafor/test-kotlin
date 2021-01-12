@@ -1,4 +1,4 @@
-package com.azeti.challange.freetime
+package com.azeti.challenge.freetime
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

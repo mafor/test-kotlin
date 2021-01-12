@@ -1,4 +1,4 @@
-package com.azeti.challange.greatlow
+package com.azeti.challenge.greatlow
 
 fun arrayChallenge(intArr: Array<Int>) = findNthGreatLow(intArr, 2)?.let { "${it.first} ${it.second}" }
 

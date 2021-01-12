@@ -1,4 +1,4 @@
-package com.azeti.challange.greatlow
+package com.azeti.challenge.greatlow
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

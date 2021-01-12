@@ -1,4 +1,4 @@
-package com.azeti.challange.freetime
+package com.azeti.challenge.freetime
 
 import java.text.ParseException
 import java.time.Duration
