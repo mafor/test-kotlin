@@ -28,7 +28,7 @@ fun findMostFreeTime(periods: List<Pair<LocalTime, LocalTime>>): Duration {
 }
 
 private val dateTimeFormat: DateTimeFormatter =
-    DateTimeFormatter.ofPattern("hh:mma").localizedBy(Locale.ENGLISH)
+    DateTimeFormatter.ofPattern("hh:mma").withLocale(Locale.ENGLISH)
 
 
 private fun parsePeriod(str: String) =
@@ -43,5 +43,5 @@ private fun parsePeriod(str: String) =
             }
         }
 
-private fun Duration.format() = "%02d:%02d".format(this.toHoursPart(), this.toMinutesPart())
+private fun Duration.format() = "%02d:%02d".format(this.toHours(), this.toMinutes() % 60)
 
