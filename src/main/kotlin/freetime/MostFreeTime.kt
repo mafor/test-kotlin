@@ -4,6 +4,7 @@ import java.text.ParseException
 import java.time.Duration
 import java.time.LocalTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 fun arrayChallenge(strArr: Array<String>): String {
     val periods = strArr.map { parsePeriod(it) }
@@ -26,9 +27,11 @@ fun findMostFreeTime(periods: List<Pair<LocalTime, LocalTime>>): Duration {
         .maxOrNull() ?: Duration.ZERO
 }
 
-private val dateTimeFormat: DateTimeFormatter = DateTimeFormatter.ofPattern("hh:mma")
+private val dateTimeFormat: DateTimeFormatter =
+    DateTimeFormatter.ofPattern("hh:mma").localizedBy(Locale.ENGLISH)
 
-private fun parsePeriod(str: String, ) =
+
+private fun parsePeriod(str: String) =
     str.split("-")
         .also { if(it.size != 2) throw ParseException("Invalid format: $str", str.lastIndexOf("-")) }
         .map { LocalTime.parse(it.toUpperCase(), dateTimeFormat) }
